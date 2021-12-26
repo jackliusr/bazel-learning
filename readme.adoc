@@ -1,0 +1,16 @@
+
+Today is 2021-12-26. In the past two days, I tried to setup bazel for one microservice projects hosted in gitlab with subgroups following reading documentations on https://docs.bazel.build/[bazel]. The hard work don't bore any fruit. I don't want to give up, So I start to learn it following a book's guide. This way maybe is more approachable. 
+
+Here is my practices following the book "Beginning Bazel". Bazel changes very fast as it has ~9 month release cycle. You don't want to waste your time on old things, So do I. my practice is based on Bazel 4.2.2
+
+```
+Build label: 4.2.2
+Build target: bazel-out/k8-opt/bin/src/main/java/com/google/devtools/build/lib/bazel/BazelServer_deploy.jar
+Build time: Thu Dec 2 18:15:58 2021 (1638468958)
+Build timestamp: 1638468958
+Build timestamp as int: 1638468958
+```
+
+## Reference: 
+- https://www.amazon.com/Beginning-Bazel-Building-Testing-Java/dp/1484251938[Beginning Bazel]
+- https://github.com/Apress/beginning-bazel[Beginning Bazel Sample Code]

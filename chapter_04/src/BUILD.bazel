@@ -1,0 +1,27 @@
+load("@io_bazel_rules_go//go:def.bzl","go_binary")
+
+java_binary(
+  name = "HelloWorld",
+  srcs = ["HelloWorld.java"],
+  deps = [":IntMultiplier"],
+)
+
+java_library(
+  name = "IntMultiplier",
+  srcs = ["IntMultiplier.java"],
+)
+
+java_test(
+   name = "IntMultiplierTest",
+   srcs = ["IntMultiplierTest.java"],
+   deps = [
+          ":IntMultiplier",
+	  "//third_party:junit4"
+		   ],
+   test_class = "IntMultiplierTest",
+)
+
+go_binary(
+   name = "hello_world_go",
+   srcs = ["hello_world.go"],
+)
