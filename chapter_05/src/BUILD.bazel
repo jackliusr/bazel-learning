@@ -1,0 +1,26 @@
+load("@io_bazel_rules_go//go:def.bzl","go_library", "go_binary", )
+
+go_binary(
+    name = "echo_server",
+    srcs = ["echo_server.go"],
+    deps=[":transmission_object_go"],
+)
+
+go_library(
+    name = "transmission_object_go",
+    importpath="transmission_object",
+    srcs = ["transmission_object.go"],
+)
+
+java_binary(
+    name = "EchoClient",
+    srcs = ["EchoClient.java"],
+    main_class = "EchoClient",
+    deps=[":transmission_object_java",
+         "//third_party:gson"],
+)
+
+java_library(
+    name = "transmission_object_java",
+    srcs = ["TransmissionObject.java"],
+)
