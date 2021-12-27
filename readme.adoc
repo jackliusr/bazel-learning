@@ -1,7 +1,25 @@
 
-Today is 2021-12-26. In the past two days, I tried to setup bazel for one microservice projects hosted in gitlab with subgroups following reading documentations on https://docs.bazel.build/[bazel]. The hard work don't bore any fruit. I don't want to give up, So I start to learn it following a book's guide. This way maybe is more approachable. 
+# Practice: Beginning Bazel
 
-Here is my practices following the book "Beginning Bazel". Bazel changes very fast as it has ~9 month release cycle. You don't want to waste your time on old things, So do I. my practice is based on Bazel 4.2.2
+Today is 2021-12-26. In the past two days, I tried to setup bazel for one microservice projects 
+hosted in gitlab with subgroups following reading documentations on https://docs.bazel.build/[bazel]. The hard work don't bore any fruit. I don't want to give up, So I start to learn it following a book's guide. This way maybe is more approachable. 
+
+Here is my practices following the book "Beginning Bazel". Bazel changes very fast as it has ~9 month release cycle. You don't want to waste your time on old things, me neither. my practice is based on Bazel 4.2.2
+
+Most of my practices are similar to "Beginning Bazel", however several one are quite different and I list them afterwards. 
+
+## Chapter 06
+
+It always give "protoc-gen-go failed :: The import path must contain at least one forward slash ('/') character." error. or no dependencies error.  
+
+go_proto_library in new version have broke compatibilities and made importpath attribute mandatory.
+
+The two errors interwingled together and make it hard to resolve.
+
+Changes I made to resovle the issues:app-name:
+- go mod init chapter_06
+- option go_package="chapter_06/transmission_object";
+- import "chapter_06/transmission_object"
 
 ```
 Build label: 4.2.2
