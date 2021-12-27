@@ -11,16 +11,17 @@ Most of my practices are similar to "Beginning Bazel", however several one are q
 
 ## Chapter 06
 
-It always give "protoc-gen-go failed :: The import path must contain at least one forward slash ('/') character." error. or no dependencies error.  
+It always give "protoc-gen-go failed : The import path must contain at least one forward slash ('/') character." error. or no dependencies error.  
 
 go_proto_library in new version have broke compatibilities and made importpath attribute mandatory.
 
 The two errors interwingled together and make it hard to resolve.
 
 Changes I made to resovle the issues:app-name:
-- go mod init chapter_06
-- option go_package="chapter_06/transmission_object";
-- import "chapter_06/transmission_object"
+
+. go mod init chapter_06
+. option go_package="chapter_06/transmission_object";
+. import "chapter_06/transmission_object"
 
 ```
 Build label: 4.2.2
