@@ -9,7 +9,7 @@ Here is my practices following the book "Beginning Bazel". Bazel changes very fa
 
 Most of my practices are similar to "Beginning Bazel", however several one are quite different and I list them afterwards. 
 
-## Chapter 06
+## Chapter 06: Protobuf
 
 It always give "protoc-gen-go failed : The import path must contain at least one forward slash ('/') character." error. or no dependencies error.  
 
@@ -30,7 +30,8 @@ Build time: Thu Dec 2 18:15:58 2021 (1638468958)
 Build timestamp: 1638468958
 Build timestamp as int: 1638468958
 ```
-
+## Chapter 07: Code organization
+## Chapter 08: gRPC
 ## Chapter 09 : android
 ## Chapter 10 : ios
 ## Chapter 11 : Web
