@@ -1,0 +1,7 @@
+# Lessons learned during practice bazel
+
+## Troubeshooting
+
+* bazel query to find dependencies
+* build a specific target and find its sources, artifact and output
+* try the native way to build in the langauge envirornment such as go build and javac etc.
