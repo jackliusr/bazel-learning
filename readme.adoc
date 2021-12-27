@@ -1,5 +1,6 @@
 
 # Practice: Beginning Bazel
+[] web
 
 Today is 2021-12-26. In the past two days, I tried to setup bazel for one microservice projects 
 hosted in gitlab with subgroups following reading documentations on https://docs.bazel.build/[bazel]. The hard work don't bore any fruit. I don't want to give up, So I start to learn it following a book's guide. This way maybe is more approachable. 
@@ -28,6 +29,10 @@ Build time: Thu Dec 2 18:15:58 2021 (1638468958)
 Build timestamp: 1638468958
 Build timestamp as int: 1638468958
 ```
+
+## Chapter 09 : android
+## Chapter 10 : ios
+## Chapter 11 : Web
 
 ## Reference: 
 - https://www.amazon.com/Beginning-Bazel-Building-Testing-Java/dp/1484251938[Beginning Bazel]
