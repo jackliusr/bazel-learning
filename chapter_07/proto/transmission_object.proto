@@ -1,0 +1,9 @@
+syntax = "proto3";
+package transmission_object;
+
+option go_package="chapter_06/transmission_object";
+
+message TransmissionObject {
+    float value = 1;
+    string message = 2;
+}

@@ -1,0 +1,22 @@
+# package(default_visibility = ["//visibility:public"])
+load("@rules_proto//proto:defs.bzl", "proto_library")
+
+proto_library(
+    name = "transmission_object_proto",
+    srcs = ["transmission_object.proto"],
+)
+
+java_proto_library(
+    name = "transmission_object_java",
+    deps = [":transmission_object_proto"],
+    visibility = ["//client/echo_client:__subpackages__"],
+)
+
+load("@io_bazel_rules_go//proto:def.bzl", "go_proto_library")
+
+go_proto_library(
+    name = "transmission_object_go_proto",
+    importpath = "chapter_06/transmission_object",
+    proto = ":transmission_object_proto",
+    visibility = ["//server/echo_server:__pkg__"],
+)
