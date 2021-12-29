@@ -1,0 +1,4 @@
+
+rule practice according to rule tutorial
+
+https://docs.bazel.build/versions/main/skylark/rules-tutorial.html
