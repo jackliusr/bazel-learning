@@ -1,0 +1,3 @@
+[submodule "go-grpc-bazel-docker"]
+	path = go-grpc-bazel-docker
+	url = https://github.com/jackliusr/go-grpc-bazel-docker
