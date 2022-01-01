@@ -1,5 +1,16 @@
 # Lessons learned during practice bazel
 
+## Beginning Bazel
+practices following the book "Beginning Bazel"
+
+## go-grpc-bazel-docker
+
+grpc client and server, put in docker image, protobuffer and generated files from protobuffers, vscode IDE integration
+
+## rule
+
+create customized rules based on rule tutorials from bazel official site.
+
 ## Troubeshooting
 
 * bazel query to find dependencies
