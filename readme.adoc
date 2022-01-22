@@ -23,7 +23,7 @@ create customized rules based on rule tutorials from bazel official site.
 ## the relative module path issue
 
 ```python
-#option 1
+#option 1, hang
 #https://github.com/bazelbuild/rules_nodejs/issues/1840#issuecomment-619277667
 load("@bazel_skylib//rules:write_file.bzl", "write_file")
 
@@ -51,5 +51,27 @@ vue-cli-service(
 
 # https://github.com/vuejs/vue-cli/issues/3152#issuecomment-448892609
 #VUE_CLI_CONTEXT=/path/to/your/dir /path/to/your/dir/node_modules/.bin/vue-cli-service build
+
+
+#option 3
+#https://github.com/bazelbuild/rules_nodejs/issues/1776#issuecomment-619313234
+genrule(
+    name = "build",
+    outs = ["dist"],
+    srcs = ["@npm//:node_modules"] + glob(
+        ["**"],
+        exclude = ["node_modules/**"],
+    ),
+    # TODO: external/npm/node_modules is a hardcode path for @npm//:node_modules, should get package path of @npm
+    cmd = """
+        export PATH=$$PWD/$$(dirname $(location @nodejs//:node_bin)):$$PATH
+        vue_cli_service=$$PWD/$(location @npm//:node_modules/.bin/vue-cli-service) outs=$$PWD/$@
+        cd frontend && ln -s ../external/npm/node_modules ./ && $$vue_cli_service build --dest $$outs
+    """,
+    tools = [
+        "@npm//:node_modules/.bin/vue-cli-service",
+        "@nodejs//:node_bin",
+    ],
+)
 
 ```
