@@ -16,3 +16,36 @@ create customized rules based on rule tutorials from bazel official site.
 * bazel query to find dependencies
 * build a specific target and find its sources, artifact and output
 * try the native way to build in the langauge envirornment such as go build and javac etc.
+
+
+## vue
+
+## the relative module path issue
+
+```python
+#option 1
+#https://github.com/bazelbuild/rules_nodejs/issues/1840#issuecomment-619277667
+load("@bazel_skylib//rules:write_file.bzl", "write_file")
+
+write_file(
+    name = "write_chdir_script",
+    out = "chdir.js",
+    content = ["process.chdir(__dirname)"],
+)
+
+vue-cli-service(
+    ...
+    args = ["--node_options=--require=./$(execpath chdir.js)"],
+    data = ["chdir.js"],
+)
+
+#option 2
+
+
+vue-cli-service(
+    ...
+    args = [],
+    data = [],
+    chdir = package_name(),
+)
+```
