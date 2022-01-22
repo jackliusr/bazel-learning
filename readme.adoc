@@ -108,4 +108,23 @@ container_image(
    base = "@nginx//image",
    tars = ["app-tar"]
 )
+
+#option 5
+# https://github.com/bazelbuild/rules_nodejs/issues/1840#issuecomment-619321919
+# https://www.npmjs.com/package/vue-cli-launcher#bazel
+load("@npm//vue-cli-launcher:index.bzl", "vue_cli_launcher")
+vue_cli_launcher(
+  name = "build",
+  args = [
+    "build",
+    "--dest=$(@D)",
+    "--resolve-dest-by-cwd",
+    "--package-json-path=$(execpath package.json)",
+  ],
+  data = [
+    "package.json",
+    ...
+  ],
+  output_dir = True,
+)
 ```
