@@ -128,3 +128,31 @@ vue_cli_launcher(
   output_dir = True,
 )
 ```
+
+## out folder empty issue
+```python
+vue_cli_service(
+    name = "build",
+    outs = ["dist"],
+    args = [
+        "build",
+        "--dest",
+        # add more .. if your projects is deep in the subfolders
+        "../../$(@D)/dist",
+        "--skip-plugins",
+        "eslint",
+    ],
+    data = [
+        ":babel.config.js",
+        ":package.json",
+        ":package-lock.json",
+        "//backend/admin-web/src:admin-web-src",
+        "@npm//:node_modules",
+        "@npm//@vue/cli-plugin-babel",
+        "@npm//@vue/cli-plugin-eslint",    
+         "@npm//vue",
+    ],
+    #output_dir = True,
+    chdir = package_name(),
+)
+```
