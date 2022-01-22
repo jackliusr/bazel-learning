@@ -40,6 +40,7 @@ vue-cli-service(
 )
 
 #option 2
+# out folder is empty
 
 
 vue-cli-service(
@@ -54,6 +55,7 @@ vue-cli-service(
 
 
 #option 3
+# not try yet
 #https://github.com/bazelbuild/rules_nodejs/issues/1776#issuecomment-619313234
 genrule(
     name = "build",
@@ -74,4 +76,36 @@ genrule(
     ],
 )
 
+# option 4
+# https://github.com/bazelbuild/rules_nodejs/issues/1831#issuecomment-615219600
+load("@build_bazel_rules_nodejs//:index.bzl", "npm_package_bin")
+load("@bazel_tools//tools/build_defs/pkg:pkg.bzl", "pkg_tar")
+load("@io_bazel_rules_docker//container:container.bzl", "container_image")
+
+npm_package_bin(
+    name = "app",
+    tool = "@npm//@vue/cli-service/bin:vue-cli-service",
+    args = [
+        "build", "$(location :src/main.js)",
+        "--dest", "$(@D)"
+    ],
+    data = [
+        "@npm//:node_modules"
+    ] + glob(["src/**"]),
+    output_dir = 1
+)
+
+pkg_tar(
+    name = "app-tar",
+    strip_prefix = "/js/app",
+    package_dir = "/usr/share/nginx/html",
+    srcs = ["//js:app"],
+    mode = "0755",
+)
+
+container_image(
+   name = "image",
+   base = "@nginx//image",
+   tars = ["app-tar"]
+)
 ```
