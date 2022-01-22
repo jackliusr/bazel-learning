@@ -48,4 +48,8 @@ vue-cli-service(
     data = [],
     chdir = package_name(),
 )
+
+# https://github.com/vuejs/vue-cli/issues/3152#issuecomment-448892609
+#VUE_CLI_CONTEXT=/path/to/your/dir /path/to/your/dir/node_modules/.bin/vue-cli-service build
+
 ```
