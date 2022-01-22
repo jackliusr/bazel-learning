@@ -20,7 +20,7 @@ create customized rules based on rule tutorials from bazel official site.
 
 ## vue
 
-## the relative module path issue
+### the relative module path issue
 
 ```python
 #option 1, hang
@@ -129,7 +129,7 @@ vue_cli_launcher(
 )
 ```
 
-## out folder empty issue
+### out folder empty issue
 ```python
 vue_cli_service(
     name = "build",
